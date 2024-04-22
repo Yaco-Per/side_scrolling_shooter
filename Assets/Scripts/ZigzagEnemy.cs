@@ -15,14 +15,9 @@ public class ZigzagEnemy : Controller_Enemy
 
     void FixedUpdate()
     {
-        if (goingUp)
-        {
-            rb.AddForce(new Vector3(-1, 1, 0) * enemySpeed);
-        }
-        else
-        {
-            rb.AddForce(new Vector3(-1, -1, 0) * enemySpeed);
-        }
+        // Aplicar una fuerza diagonal al enemigo dependiendo de la dirección de movimiento
+        Vector3 forceDirection = goingUp ? new Vector3(-1, 1, 0) : new Vector3(-1, -1, 0);
+        rb.AddForce(forceDirection * enemySpeed, ForceMode.Impulse);
     }
 
     internal override void OnCollisionEnter(Collision collision)
@@ -30,13 +25,12 @@ public class ZigzagEnemy : Controller_Enemy
         if (collision.gameObject.CompareTag("Floor"))
         {
             goingUp = true;
-            //rb.velocity = Vector3.zero;
         }
-        if (collision.gameObject.CompareTag("Ceiling"))
+        else if (collision.gameObject.CompareTag("Ceiling"))
         {
             goingUp = false;
-            //rb.velocity = Vector3.zero;
         }
+
         base.OnCollisionEnter(collision);
     }
 }

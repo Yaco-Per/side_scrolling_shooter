@@ -8,8 +8,7 @@ public class PatternEnemy : Controller_Enemy
 
     public bool forward;
 
-    private float timer=1f;
-
+    private float timer = 1f;
     private Rigidbody rb;
 
     void Start()
@@ -41,19 +40,12 @@ public class PatternEnemy : Controller_Enemy
     {
         if (forward)
         {
-            rb.AddForce(new Vector3(-1, 0, 0) * enemySpeed,ForceMode.Impulse);
+            rb.AddForce(Vector3.left * enemySpeed, ForceMode.Impulse);
         }
         else
         {
-            if (goingUp)
-            {
-                rb.AddForce(new Vector3(-1, -1, 0) * enemySpeed, ForceMode.Impulse);
-            }
-            else
-            {
-                rb.AddForce(new Vector3(-1, 1, 0) * enemySpeed, ForceMode.Impulse);
-            }
+            Vector3 direction = goingUp ? Vector3.down : Vector3.up;
+            rb.AddForce(Vector3.left * enemySpeed + direction * enemySpeed, ForceMode.Impulse);
         }
-
     }
 }

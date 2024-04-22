@@ -1,25 +1,26 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Controller_Player : MonoBehaviour
 {
-    public float speed = 5;
+    public float speed = 5f;
+    public float smoothTime = 0.1f; // Suavizado del movimiento
 
     private Rigidbody rb;
+    private Vector3 velocity = Vector3.zero;
 
     public GameObject projectile;
     public GameObject doubleProjectile;
     public GameObject missileProjectile;
     public GameObject laserProjectile;
     public GameObject option;
-    public int powerUpCount=0;
+    public int powerUpCount = 0;
 
     internal bool doubleShoot;
     internal bool missiles;
     internal float missileCount;
-    internal float shootingCount=0;
+    internal float shootingCount = 0;
     internal bool forceField;
     internal bool laserOn;
 
@@ -33,9 +34,9 @@ public class Controller_Player : MonoBehaviour
     internal GameObject laser;
 
     private List<Controller_Option> options;
-    
+
     public static Controller_Player _Player;
-    
+
     private void Awake()
     {
         if (_Player == null)
@@ -46,13 +47,10 @@ public class Controller_Player : MonoBehaviour
                 GameObject container = new GameObject("Player");
                 _Player = container.AddComponent<Controller_Player>();
             }
-            //Debug.Log("Player==null");
             DontDestroyOnLoad(_Player);
         }
         else
         {
-            //Debug.Log("Player=!null");
-            //this.gameObject.SetActive(false);
             Destroy(this.gameObject);
         }
     }
@@ -97,9 +95,9 @@ public class Controller_Player : MonoBehaviour
     {
         missileCount -= Time.deltaTime;
         shootingCount -= Time.deltaTime;
-        if (Input.GetKey(KeyCode.O) && shootingCount<0)
+        if (Input.GetKey(KeyCode.O) && shootingCount < 0)
         {
-            if (OnShooting!=null)
+            if (OnShooting != null)
             {
                 OnShooting();
             }
@@ -108,7 +106,6 @@ public class Controller_Player : MonoBehaviour
             {
                 laser = Instantiate(laserProjectile, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
                 laser.GetComponent<Controller_Laser>().parent = this.gameObject;
-                //laser.GetComponent<Controller_Laser>().relase = false;
             }
             else
             {
@@ -149,7 +146,7 @@ public class Controller_Player : MonoBehaviour
                 speed *= 2;
                 powerUpCount = 0;
             }
-            else if(powerUpCount == 2)
+            else if (powerUpCount == 2)
             {
                 if (!missiles)
                 {
@@ -187,20 +184,20 @@ public class Controller_Player : MonoBehaviour
 
     private void OptionListing()
     {
-        GameObject op=null;
+        GameObject op = null;
         if (options.Count == 0)
         {
-            op = Instantiate(option, new Vector3(transform.position.x-1, transform.position.y-2, transform.position.z), Quaternion.identity);
+            op = Instantiate(option, new Vector3(transform.position.x - 1, transform.position.y - 2, transform.position.z), Quaternion.identity);
             options.Add(op.GetComponent<Controller_Option>());
             powerUpCount = 0;
         }
-        else if(options.Count == 1)
+        else if (options.Count == 1)
         {
             op = Instantiate(option, new Vector3(transform.position.x - 1, transform.position.y + 2, transform.position.z), Quaternion.identity);
             options.Add(op.GetComponent<Controller_Option>());
             powerUpCount = 0;
         }
-        else if(options.Count == 2)
+        else if (options.Count == 2)
         {
             op = Instantiate(option, new Vector3(transform.position.x - 1.5f, transform.position.y - 4, transform.position.z), Quaternion.identity);
             options.Add(op.GetComponent<Controller_Option>());
@@ -218,13 +215,17 @@ public class Controller_Player : MonoBehaviour
     {
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(speed* inputX,speed * inputY);
-        rb.velocity = movement;
-        if (Input.GetKey(KeyCode.W))
+        Vector3 targetVelocity = new Vector3(inputX * speed, inputY * speed, 0f);
+
+        // Aplicar suavizado al movimiento
+        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothTime);
+
+        // Determinar la dirección del último movimiento para el disparo
+        if (inputY > 0)
         {
             lastKeyUp = true;
-        }else
-        if (Input.GetKey(KeyCode.S))
+        }
+        else if (inputY < 0)
         {
             lastKeyUp = false;
         }
@@ -232,7 +233,7 @@ public class Controller_Player : MonoBehaviour
 
     public virtual void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Enemy")|| collision.gameObject.CompareTag("EnemyProjectile"))
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyProjectile"))
         {
             if (forceField)
             {
@@ -242,7 +243,6 @@ public class Controller_Player : MonoBehaviour
             else
             {
                 gameObject.SetActive(false);
-                //Destroy(this.gameObject);
                 Controller_Hud.gameOver = true;
             }
         }
