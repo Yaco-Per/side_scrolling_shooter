@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target; // El jugador (Player)
-
+    public Transform target; // Referencia al objeto con el tag "Player"
     public float smoothSpeed = 0.125f;
     public Vector3 offset;
 
@@ -12,7 +11,7 @@ public class CameraFollow : MonoBehaviour
         if (target != null)
         {
             Vector3 desiredPosition = target.position + offset;
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
             transform.position = smoothedPosition;
 
             transform.LookAt(target);

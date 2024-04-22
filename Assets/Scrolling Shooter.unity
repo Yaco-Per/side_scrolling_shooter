@@ -1282,9 +1282,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 4
   enemies:
+  - {fileID: 4060843512498849104, guid: b7b34090b424bfd40bd47ad5cdf05e98, type: 3}
+  - {fileID: 4060843512498849104, guid: eda43a2aed03d644e8da7600313f7462, type: 3}
   - {fileID: 4060843512498849104, guid: 2079109aa6d35b54eb2a9bcfdd363a24, type: 3}
-  - {fileID: 4060843512498849104, guid: eda43a2aed03d644e8da7600313f7462, type: 3}
-  - {fileID: 4060843512498849104, guid: eda43a2aed03d644e8da7600313f7462, type: 3}
   instantiatePos: {fileID: 1265482111}
   initialEnemySpeed: 2
   maxEnemySpeed: 10
@@ -1497,7 +1497,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2116811675}
   m_Layer: 0
-  m_Name: Folder Camera and Light
+  m_Name: Folder Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
