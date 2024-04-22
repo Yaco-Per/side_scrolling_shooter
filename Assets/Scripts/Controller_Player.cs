@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Controller_Player : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 10f;
     public float smoothTime = 0.1f; // Suavizado del movimiento
 
     private Rigidbody rb;
