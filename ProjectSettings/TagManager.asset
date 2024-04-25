@@ -12,6 +12,8 @@ TagManager:
   - Projectile
   - Ceiling
   - Laser
+  - InvulnerabilityPowerUp
+  - Ultimate Enemy
   layers:
   - Default
   - TransparentFX
