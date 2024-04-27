@@ -1,4 +1,4 @@
-ï»¿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,14 +6,14 @@ public class Controller_Instantiator : MonoBehaviour
 {
     public float timer = 4; // Intervalo de tiempo entre cada oleada de enemigos
     public List<GameObject> enemies; // Lista de enemigos
-    public GameObject instantiatePos; // PosiciÃ³n donde instanciar los enemigos
+    public GameObject instantiatePos; // Posición donde instanciar los enemigos
 
     public float initialEnemySpeed = 1f; // Velocidad inicial de los enemigos
-    public float maxEnemySpeed = 10f; // Velocidad mÃ¡xima de los enemigos
+    public float maxEnemySpeed = 10f; // Velocidad máxima de los enemigos
 
     private float currentEnemySpeed; // Velocidad actual de los enemigos
     private int pointsForSpeedIncrease = 10; // Puntos necesarios para aumentar la velocidad
-    private int previousPoints; // Puntos en la Ãºltima verificaciÃ³n de velocidad
+    private int previousPoints; // Puntos en la última verificación de velocidad
     private int speedIncreaseCount; // Cantidad de aumentos de velocidad aplicados
 
     void Start()
@@ -41,17 +41,17 @@ public class Controller_Instantiator : MonoBehaviour
         }
     }
 
-    // MÃ©todo para aumentar la velocidad de los enemigos
+    // Método para aumentar la velocidad de los enemigos
     private void IncreaseEnemySpeed()
     {
         speedIncreaseCount++; // Incrementar el contador de aumentos de velocidad
         currentEnemySpeed = Mathf.Min(initialEnemySpeed + speedIncreaseCount, maxEnemySpeed); // Incrementar la velocidad
     }
 
-    // MÃ©todo para instanciar enemigos
+    // Método para instanciar enemigos
     private void SpawnEnemies()
     {
-        float offsetX = instantiatePos.transform.position.x; // PosiciÃ³n inicial en el eje X
+        float offsetX = instantiatePos.transform.position.x; // Posición inicial en el eje X
 
         // Instanciar un enemigo de cada tipo
         for (int i = 0; i < enemies.Count; i++)
