@@ -15,27 +15,22 @@ public class ZigzagEnemy : Controller_Enemy
 
     void FixedUpdate()
     {
-        if (goingUp)
-        {
-            rb.AddForce(new Vector3(-1, 1, 0) * enemySpeed);
-        }
-        else
-        {
-            rb.AddForce(new Vector3(-1, -1, 0) * enemySpeed);
-        }
+        // Determina la dirección del movimiento en función de la variable goingUp
+        Vector3 moveDirection = goingUp ? Vector3.up : Vector3.down;
+        // Aplica una fuerza al Rigidbody en la dirección determinada por moveDirection
+        rb.AddForce(new Vector3(-1, 1, 0) * enemySpeed * moveDirection.y);
     }
 
     internal override void OnCollisionEnter(Collision collision)
     {
+        // Cambia la dirección del movimiento cuando el enemigo colisiona con el suelo o el techo
         if (collision.gameObject.CompareTag("Floor"))
         {
             goingUp = true;
-            //rb.velocity = Vector3.zero;
         }
         if (collision.gameObject.CompareTag("Ceiling"))
         {
             goingUp = false;
-            //rb.velocity = Vector3.zero;
         }
         base.OnCollisionEnter(collision);
     }
