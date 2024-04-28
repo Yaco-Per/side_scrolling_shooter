@@ -120,8 +120,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xLimit: 30
+<<<<<<< HEAD
   yLimit: 30
   projectileSpeed: 30
+=======
+  yLimit: 60
+  projectileSpeed: 20
+>>>>>>> eaeb3a811b33d4281ae76e6f284c8ec0a7d19a9c
   rb: {fileID: 0}
 --- !u!54 &2737279127566898126
 Rigidbody:

@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class FollowingEnemy : Controller_Enemy
 {
+<<<<<<< HEAD
     private GameObject player;
+=======
+    private GameObject player; 
+
+>>>>>>> eaeb3a811b33d4281ae76e6f284c8ec0a7d19a9c
     private Rigidbody rb;
     private Vector3 direction;
 

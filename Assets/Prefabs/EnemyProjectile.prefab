@@ -146,6 +146,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15cfc4173411b64285bb5af8cf1c993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   xLimit: 30
   yLimit: 60
+=======
+  xLimit: 90
+  yLimit: 90
+>>>>>>> eaeb3a811b33d4281ae76e6f284c8ec0a7d19a9c
   enemyProjectileSpeed: 5
