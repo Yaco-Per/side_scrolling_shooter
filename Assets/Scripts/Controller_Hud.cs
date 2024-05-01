@@ -64,6 +64,6 @@ public class Controller_Hud : MonoBehaviour
                 powerUpText.text = "PowerUp: Shield";
             }
         }
-        pointsText.text = "Score: " + points.ToString();
+        pointsText.text = "Tu Puntuacion: " + points.ToString();
     }
 }

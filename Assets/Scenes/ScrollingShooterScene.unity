@@ -198,7 +198,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4030288557592288549, guid: 72e5233e75519f741b764da130079030,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 963194228}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72e5233e75519f741b764da130079030, type: 3}
 --- !u!1 &75544826
@@ -252,9 +256,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Game Over
-
-    Press R to restart'
+  m_Text: "Has Perdido. \nOprime la tecla R para reiniciar."
 --- !u!222 &75544828
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -457,11 +459,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '"WASD" to move.
+  m_Text: '"WASD" Para Moverte.
 
-    "O" to shoot.
+    "O"Para disparar.
 
-    "P" to use power up.'
+    "P" para el  power up.
+
+    "R"
+    Para reiniciar.'
 --- !u!222 &211886184
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -725,6 +730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc4088e4a61ee3d409a2c3ae064a81c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialPlayerPosition: {x: -8.24, y: 6, z: 0}
 --- !u!4 &955473645
 Transform:
   m_ObjectHideFlags: 0
@@ -825,12 +831,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.24, z: -28.45}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.544853, y: 0.13237424, z: -15.691878}
+  m_LocalScale: {x: 0.55155987, y: 0.55155987, z: 0.55155987}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1589199168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &995129540
 GameObject:
@@ -1004,7 +1010,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score:'
+  m_Text: 'Tu puntuacion:'
 --- !u!222 &1264914170
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1082,6 +1088,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1589199168 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4030288557592288549, guid: 72e5233e75519f741b764da130079030,
+    type: 3}
+  m_PrefabInstance: {fileID: 70881515}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1589956721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,7 +1282,6 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 116520642}
   - {fileID: 1589956725}
