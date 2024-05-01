@@ -5,7 +5,11 @@ using UnityEngine;
 public class Controller_Player : MonoBehaviour
 {
     public float speed = 10f;
+<<<<<<< HEAD
     public float smoothTime = 0.125f; // Suavizado del movimiento
+=======
+    public float smoothTime = 0.1f; // Suavizado del movimiento
+>>>>>>> 34ec97fb908ab323d140edd83c35ab78a497c510
 
     private Rigidbody rb;
     private Vector3 velocity = Vector3.zero;
@@ -242,10 +246,14 @@ public class Controller_Player : MonoBehaviour
             }
             else
             {
+<<<<<<< HEAD
                 // Reposicionar al jugador en las coordenadas iniciales (-8.24, 6, 0)
                 transform.position = new Vector3(-8.24f, 6f, 0f);
 
                 // Establecer la bandera de gameOver en el HUD
+=======
+                gameObject.SetActive(false);
+>>>>>>> 34ec97fb908ab323d140edd83c35ab78a497c510
                 Controller_Hud.gameOver = true;
             }
         }

@@ -31,7 +31,11 @@ public class Controller_Hud : MonoBehaviour
         if (gameOver)
         {
             Time.timeScale = 0;
+<<<<<<< HEAD
             gameOverText.text = "Has perdido";
+=======
+            gameOverText.text = "Game Over";
+>>>>>>> 34ec97fb908ab323d140edd83c35ab78a497c510
             gameOverText.gameObject.SetActive(true);
         }
     }
@@ -40,7 +44,11 @@ public class Controller_Hud : MonoBehaviour
     private void UpdateHUD()
     {
         // Actualizar el texto de los puntos
+<<<<<<< HEAD
         pointsText.text = "Tu Puntuacion: " + points.ToString();
+=======
+        pointsText.text = "Score: " + points.ToString();
+>>>>>>> 34ec97fb908ab323d140edd83c35ab78a497c510
 
         // Actualizar el texto del power-up
         if (player != null)

@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 Ôªøusing System.Collections;
+=======
+<<<<<<< HEAD
+Ôªøusing System.Collections;
+=======
+using System.Collections;
+>>>>>>> eaeb3a811b33d4281ae76e6f284c8ec0a7d19a9c
+>>>>>>> 34ec97fb908ab323d140edd83c35ab78a497c510
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +14,10 @@ public class Controller_Instantiator : MonoBehaviour
 {
     public float timer = 4; // Intervalo de tiempo entre cada oleada de enemigos
     public List<GameObject> enemies; // Lista de enemigos
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 34ec97fb908ab323d140edd83c35ab78a497c510
     public GameObject instantiatePos; // Posici√≥n donde instanciar los enemigos
 
     public float initialEnemySpeed = 1f; // Velocidad inicial de los enemigos
@@ -14,6 +26,19 @@ public class Controller_Instantiator : MonoBehaviour
     private float currentEnemySpeed; // Velocidad actual de los enemigos
     private int pointsForSpeedIncrease = 10; // Puntos necesarios para aumentar la velocidad
     private int previousPoints; // Puntos en la √∫ltima verificaci√≥n de velocidad
+<<<<<<< HEAD
+=======
+=======
+    public GameObject instantiatePos; // PosiciÛn donde instanciar los enemigos
+
+    public float initialEnemySpeed = 1f; // Velocidad inicial de los enemigos
+    public float maxEnemySpeed = 10f; // Velocidad m·xima de los enemigos
+
+    private float currentEnemySpeed; // Velocidad actual de los enemigos
+    private int pointsForSpeedIncrease = 10; // Puntos necesarios para aumentar la velocidad
+    private int previousPoints; // Puntos en la ˙ltima verificaciÛn de velocidad
+>>>>>>> eaeb3a811b33d4281ae76e6f284c8ec0a7d19a9c
+>>>>>>> 34ec97fb908ab323d140edd83c35ab78a497c510
     private int speedIncreaseCount; // Cantidad de aumentos de velocidad aplicados
 
     void Start()
@@ -41,17 +66,38 @@ public class Controller_Instantiator : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     // M√©todo para aumentar la velocidad de los enemigos
+=======
+<<<<<<< HEAD
+    // M√©todo para aumentar la velocidad de los enemigos
+=======
+    // MÈtodo para aumentar la velocidad de los enemigos
+>>>>>>> eaeb3a811b33d4281ae76e6f284c8ec0a7d19a9c
+>>>>>>> 34ec97fb908ab323d140edd83c35ab78a497c510
     private void IncreaseEnemySpeed()
     {
         speedIncreaseCount++; // Incrementar el contador de aumentos de velocidad
         currentEnemySpeed = Mathf.Min(initialEnemySpeed + speedIncreaseCount, maxEnemySpeed); // Incrementar la velocidad
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 34ec97fb908ab323d140edd83c35ab78a497c510
     // M√©todo para instanciar enemigos
     private void SpawnEnemies()
     {
         float offsetX = instantiatePos.transform.position.x; // Posici√≥n inicial en el eje X
+<<<<<<< HEAD
+=======
+=======
+    // MÈtodo para instanciar enemigos
+    private void SpawnEnemies()
+    {
+        float offsetX = instantiatePos.transform.position.x; // PosiciÛn inicial en el eje X
+>>>>>>> eaeb3a811b33d4281ae76e6f284c8ec0a7d19a9c
+>>>>>>> 34ec97fb908ab323d140edd83c35ab78a497c510
 
         // Instanciar un enemigo de cada tipo
         for (int i = 0; i < enemies.Count; i++)
