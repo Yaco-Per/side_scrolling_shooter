@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Controller_EnemyProjectile : Projectile
 {
-    private GameObject player;
-
     private Vector3 direction;
 
     private Rigidbody rb;
@@ -14,18 +12,26 @@ public class Controller_EnemyProjectile : Projectile
 
     void Start()
     {
-        if (Controller_Player._Player != null)
-        {
-            player = Controller_Player._Player.gameObject;
-            direction = -(this.transform.localPosition - player.transform.localPosition).normalized;
-        }
+        SetDirection();
         rb = GetComponent<Rigidbody>();
     }
 
-    
+    void SetDirection()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            direction = (player.transform.position - transform.position).normalized;
+        }
+        else
+        {
+            direction = transform.forward; // Fallback to forward direction if player is not found
+        }
+    }
+
     public override void Update()
     {
-        rb.AddForce(direction*enemyProjectileSpeed);
+        rb.velocity = direction * enemyProjectileSpeed;
         base.Update();
     }
 }
